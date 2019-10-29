@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% csrf_token %}
+
+
+{% block title %}HelpMePick : Activity{% endblock %}
+
+{% block content %}
+    <style>
+        h1{
+            font-size:500%;
+            font-weight:bold;
+            font-style:italic;
+        }
+        h2{
+            font-size:300%;
+            font-weight:bold;
+        }
+        h3{
+            font-size:200%;
+            
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            }
+    </style>
+    <div style="background-color:rgba(255,255,255,0.5);">
+    <h1>ACTIVITY</h1>
+
+{% if data %}
+
+
+{% for detail in data %}
+    <img src="/{{ detail.pict }}" width="500px" height="500px" class="center" style="border-radius:50%;"></img>
+    <p>
+        <h2 style="text-align:center;">{{ detail.name }}</h2>
+        <h3 style="text-align:center;">{{ detail.desc }}</h3>
+    </p>
+{% endfor %}
+
+{% endif %}
+
+    </div>
+      
+{% endblock %}

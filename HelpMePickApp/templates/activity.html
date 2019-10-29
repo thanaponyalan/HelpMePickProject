@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}HelpMePick : Activity{% endblock %}
+
+{% block content %}
+    <style>
+        h1{
+            font-size:500%;
+            font-weight:bold;
+            font-style:italic;
+        }
+        p{
+            font-size:300%;
+        }
+        p .container{
+            font-size:70%;
+        }
+        input[type=radio]{
+            width:1em;
+            height:1em;
+            margin-right:10px;
+        }
+    </style>
+    <div style="background-color:rgba(255,255,255,0.5);">
+    <h1>ACTIVITY</h1>
+
+    <form action="{% url 'getActivity' %}" method="post">
+    {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <p>Please choose your age range : </p>
+                <p>
+                    <label class="container">
+                    <input name="ageRange" value="1" id="child" type="radio">7-12 year
+                    <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                    <input name="ageRange" value="2" id="teen" type="radio">13-25 year
+                    <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                    <input name="ageRange" value="3" id="working" type="radio">26-50 year
+                    <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                    <input name="ageRange" value="4" id="old" type="radio">51 year up.
+                    <span class="checkmark"></span>
+                    </label>
+                </p>
+                <p>Please choose how many people : </p>
+                <p>
+                    <label class="container">
+                    <input name="actType" value="1" id="single" type="radio">Single
+                    <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                    <input name="actType" value="2" id="dual" type="radio">Couple
+                    <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                    <input name="actType" value="3" id="group" type="radio">Group
+                    <span class="checkmark"></span>
+                    </label>
+                </p>
+                <a href="#" class="btn btn-lg btn-warning" onclick="window.history.back()">BACK</a>
+                <input class="btn btn-lg btn-danger" name="submit" value="RANDOM" type="submit"></center>
+            </div>
+        </div>
+    </form>
+    </div>
+      
+{% endblock %}
